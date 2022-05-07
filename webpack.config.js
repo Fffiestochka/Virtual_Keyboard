@@ -25,7 +25,9 @@ const config = {
     host: 'localhost'
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!.git']
+    }),
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
