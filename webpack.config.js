@@ -1,38 +1,37 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
-const webpack = require("webpack");
+// const webpack = require('webpack');
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isProduction = process.env.NODE_ENV === 'production';
 
-const isProduction = process.env.NODE_ENV == "production";
-
-const stylesHandler = isProduction
-  ? MiniCssExtractPlugin.loader
-  : "style-loader";
+// const stylesHandler = isProduction
+//   ? MiniCssExtractPlugin.loader
+//   : 'style-loader';
 
 const config = {
-  mode: isProduction ? "production" : "development",
-  entry: ["./src/index.js", "./src/sass/style.scss"],
-  devtool: isProduction ? "none" : "source-map",
+  mode: isProduction ? 'production' : 'development',
+  entry: ['./src/index.js', './src/sass/style.scss'],
+  devtool: isProduction ? 'none' : 'source-map',
   watch: !isProduction,
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "script.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'script.js'
   },
   devServer: {
     open: true,
-    host: "localhost",
+    host: 'localhost'
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: 'index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: "style.css",
-    }),
+      filename: 'style.css'
+    })
 
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -41,46 +40,46 @@ const config = {
     rules: [
       {
         test: /\.js$/,
-        exclude: ["/node_modules/"],
+        exclude: ['/node_modules/'],
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
       {
         test: /\.(png|svg|jpe?g|gif)$/,
         use: [
           {
-            loader: "file-loader",
-          },
-        ],
+            loader: 'file-loader'
+          }
+        ]
       },
       {
         test: /\.html$/i,
-        loader: "html-loader",
-      },
+        loader: 'html-loader'
+      }
       // Add your rules for custom modules here
       // Learn more about loaders from https://webpack.js.org/loaders/
-    ],
+    ]
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
+    extensions: ['.tsx', '.ts', '.js']
+  }
 };
 
 module.exports = () => {
   if (isProduction) {
-    config.mode = "production";
+    config.mode = 'production';
 
     config.plugins.push(new MiniCssExtractPlugin());
   } else {
-    config.mode = "development";
+    config.mode = 'development';
   }
   return config;
 };
