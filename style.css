@@ -1,0 +1,42 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/sass/style.scss ***!
+  \**************************************************************************************************************/
+.container {
+  width: 1180px;
+  height: 500px;
+  padding: 30px;
+  margin: 0 auto;
+  background-color: #065435;
+}
+
+.output {
+  display: block;
+  width: 800px;
+  height: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 2px solid #000;
+  margin-bottom: 30px;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 5px;
+  width: 800px;
+  height: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 2px solid #000;
+  grid-template-areas: "title title title title aside" "nav main main main aside" "nav main main main aside" "footer footer footer footer footer" "footer footer footer footer footer";
+}
+
+.description {
+  text-align: center;
+  color: rgb(251, 255, 42);
+}
+
+/*# sourceMappingURL=style.css.map*/
