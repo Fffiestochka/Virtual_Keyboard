@@ -1,0 +1,53 @@
+.container {
+	width: 1180px;
+	height: 100vh;
+	padding: 30px;
+	margin: 0 auto;
+	background-color: #adadc7;
+}
+.output {
+	display: block;
+	width: 800px;
+	height: 200px;
+	padding: 10px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: 2px solid #000;
+	margin-bottom: 30px;
+}
+.keyboard-container {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+	gap: 5px;
+	width: 800px;
+	height: auto;
+	padding: 10px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: 2px solid #000;
+}
+.single {
+  width: 45px;
+  height: 45px;
+
+}
+.double {
+  width: 95px;
+  height: 45px;
+}
+.space {
+  width: 345px;
+  height: 45px;
+
+}
+.description {
+	text-align: center;
+	color: #000;
+}
+.key-button {
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
