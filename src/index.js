@@ -84,15 +84,17 @@ const keyboard = [
   ',',
   '.',
   '/',
+  'Upper',
   'Shift',
-  'Control',
-  'Meta',
+  'Ctrl',
+  'Win',
   'Alt',
   ' ',
   'Alt',
-  'Meta',
-  'ContextMenu',
-  'Control'
+  'Left',
+  'Down',
+  'Right',
+  'Ctrl'
 ];
 let keyboardObg = [];
 for (let i = 0; i < keyboard.length; i += 1) {
@@ -102,29 +104,24 @@ for (let i = 0; i < keyboard.length; i += 1) {
   keyObj.caps = false;
   keyboardObg.push(keyObj);
 }
-console.log(keyboardObg);
+// console.log(keyboardObg);
 const generateKeys = () => {
   let keys = [];
   keyboardObg.forEach((key) => {
     keys.push(new Key(key));
   });
-  console.log(keys);
+  // console.log(keys);
   return keys;
 };
 // generateKeys();
 const renderKeysToKeyboardContainer = () => {
   let keyboardContainer = document.querySelector('.keyboard-container');
   generateKeys().forEach(key => {
-    console.log(key);
+    // console.log(key);
     keyboardContainer.append(key.generateKey());
   });
 };
-
-// function init () {
-//   let out = '';
-//   out =+ ''
-// }
-window.onload = function () {
+window.onload = () => {
   addContainertoDom();
   addElementToContainer('textarea', 'output');
   addElementToContainer('div', 'keyboard-container');
